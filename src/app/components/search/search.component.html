@@ -1,0 +1,27 @@
+<div class="nav-section">
+    <div class="nav-search">
+        <input #termino (keyup)="buscarFoto(termino.value)" type="text" placeholder="  Buscar foto">
+    </div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+
+
+<div class="card-home">
+    <div class="card-container" *ngFor="let photo of photofind">
+        <div class="card">
+            <div class="card-img">
+                <img [src]="photo.src.medium" alt="">
+            </div>
+        </div>
+        <div class="card-autor">
+            <a [href]="photo.url" class="card-link">
+                <i class="fas fa-sign-in-alt fa-2x"></i>
+            </a>
+            <p>
+                {{photo.photographer}}
+            </p>
+
+        </div>
+    </div>
+</div>
